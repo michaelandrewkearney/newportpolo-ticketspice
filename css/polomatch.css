@@ -1,23 +1,141 @@
 p.validity-message-wrapper {
-    font-weight: bold;
-    color: red;
-    text-align: center;
-    font-family: "Libre Franklin", sans-serif;
-    margin: 20px auto;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+  font-family: "Libre Franklin", sans-serif;
+  margin: 20px auto;
 }
 p.validity-message-wrapper a {
-    color: blue;
-    font-weight: inherit;
-    text-align: inherit;
-    font-family: inherit;
+  color: blue;
+  font-weight: inherit;
+  text-align: inherit;
+  font-family: inherit;
 }
 p.validity-message-wrapper a:hover {
-    color: #292f50;
-    font-weight: inherit;
-    text-align: inherit;
-    font-family: inherit;
+  color: #292f50;
+  font-weight: inherit;
+  text-align: inherit;
+  font-family: inherit;
 }
 
 circle {
-    r: 30 !important;
+  r: 30 !important;
+}
+
+/* Hides TicketSpice logos */
+.holds-wc-logos {
+  display: none;
+}
+
+/* Makes html inserts invisible */
+.field-html {
+  background-color: transparent;
+  padding: 0px;
+}
+
+/* Styles custom spacer elements */
+div.spacer {
+  padding: 30px 0px;
+}
+
+/* Makes checkout elements horizontal on mobile devices */
+.field-email.registrant-field .sub-field .has-checkbox.flex {
+  flex-direction: row;
+}
+.field-codeBox .holds-coupon-code .multi-field {
+  flex-direction: row;
+}
+
+/* Makes non-red buttons red */
+.btn--pickSeats,
+.btn--blue {
+  text-transform: uppercase !important;
+  font-family: Libre Franklin !important;
+  background-color: #a00300 !important;
+  color: #ffffff !important;
+  cursor: pointer !important;
+  border-radius: 2px !important;
+}
+
+/* Resizes and styles seating chart on desktop and mobile */
+.reservedSeating {
+  max-width: none;
+}
+.reservedSeating .panZoom {
+  top: 15px;
+  left: 20px;
+}
+.reservedSeating .panZoom .legend-toggle {
+  display: none;
+}
+.reservedSeating .panZoom .btn {
+  background: rgb(81, 85, 94);
+}
+.reservedSeating .panZoom .btn .icon {
+  color: #f5f5f5;
+}
+#reserved-seating-container:not(.full-screen) .reservedSeating svg#layout {
+  max-width: none !important;
+  height: 800px !important;
+  max-height: calc(100vw - 200px) !important;
+}
+#reserved-seating-container.full-screen svg#layout {
+  max-height: 100% !important;
+  min-height: 100% !important;
+}
+#reserved-seating-container.full-screen
+  .reservedSeating
+  .reservedSeating-container {
+  height: 100% !important;
+  padding: 0px;
+}
+#reserved-seating-container.full-screen .reservedSeating {
+  height: calc(100vh - 60px) !important;
+}
+
+/* Restores seating chart border on tablets */
+@media (min-width: 768px) {
+  .reservedSeating {
+    border: 1px solid #dbe4ec !important;
+    border-radius: 6px;
+  }
+}
+
+/* Fixes style issues on mobile */
+@media screen and (max-width: 767px) {
+  .campaign-form h1 {
+    font-size: 28px !important;
+  }
+  div.spacer {
+    padding: 10px 0px;
+  }
+  .form-header.header-type-logo div.holds-image {
+    padding: 10px;
+  }
+  #reserved-seating-container {
+    padding: 0px;
+  }
+  #ticketBlock {
+    padding: 48px 0;
+  }
+  #registrants .field-reservedSeating {
+    padding-top: 0px;
+  }
+}
+
+/* Styles desktop order bar like tablet and mobile order bars */
+@media (min-width: 1200px) {
+  .reservedSeating .orderBar {
+    top: auto !important;
+    bottom: 0 !important;
+    background-color: rgb(242, 245, 247);
+  }
+  .reservedSeating .orderBar .orderBar-content .item.item--countdown,
+  .reservedSeating .orderBar .orderBar-content .item.item--ticketCount {
+    color: #333333 !important;
+  }
+  .reservedSeating .orderBar .orderBar-content .item.item--countdown span,
+  .reservedSeating .orderBar .orderBar-content .item.item--ticketCount span {
+    color: #222222 !important;
+  }
 }
