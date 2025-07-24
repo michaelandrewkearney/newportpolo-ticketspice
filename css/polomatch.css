@@ -22,6 +22,11 @@ circle {
   r: 30 !important;
 }
 
+/* Hides Find Best Available button */
+#best-available-button {
+  display: none;
+}
+
 /* Hides TicketSpice logos */
 .holds-wc-logos {
   display: none !important;
