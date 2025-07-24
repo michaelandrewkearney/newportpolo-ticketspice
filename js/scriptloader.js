@@ -1,3 +1,4 @@
+const domain = "https://resources.newportpolo.com";
 
 const loadScript = (url) => {
     const script = document.createElement('script');
@@ -17,5 +18,5 @@ const getDecacheString = (url) => {
     return "?" + (Math.floor(Math.random() * 100000000) + 1).toString();
 }
 
-loadScript("https://static.nptpolo.com/js/polomatch.js");
-loadStyle("https://static.nptpolo.com/css/polomatch.css");
+loadScript(domain + "/js/polomatch.js");
+loadStyle(domain + "/css/polomatch.css");
