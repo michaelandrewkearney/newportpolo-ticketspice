@@ -95,7 +95,26 @@ $(document).ready(function () {
         var totalChaletQty = getQuantityByTypeName("CHALET");
         var totalLawnQty = getQuantityByTypeName("LAWN_TICKET");
         var totalSpaceQty = totalTailgateQty + totalChaletQty;
+        var maximumSpacesAllowed = 1;
         var minimumRequiredLawnTickets = ticketMinimums[totalSpaceQty] || 0;
+        if (totalSpaceQty > maximumSpacesAllowed) {
+            SOspaceMaximumError = "There is a limit of " + maximumSpacesAllowed + " Tailgate or Chalet per household per match. Please modify your selection or inquire about a Polo Party above.";
+            // Validation failed - stop submission
+            alertify.alert("Notice", SOspaceMaximumError).set('modal', true).set('basic', false).pin().set({
+                onclose: function () {
+                    // Scroll to ticket selection when alert is closed
+                    var ticketTypesElement = $('#seatsContentArea');
+                    if (ticketTypesElement.length) {
+                        $('html, body').animate({
+                            scrollTop: ticketTypesElement.offset().top - 50
+                        }, 'fast');
+                    }
+                }
+            });
+            ignoreLeaveAttempts();
+            enableSubmit(origSubmitButtonText);
+            return false;
+        }
         if (totalLawnQty < minimumRequiredLawnTickets) {
             if (totalSpaceQty === 1 && totalTailgateQty === 1) {
                 SOticketMinimumError = "Please select the required minimum number of Lawn Tickets to continue. A purchase of a Tailgate space requires a minimum of " + minimumRequiredLawnTickets + " Lawn Tickets.";
